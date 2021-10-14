@@ -8,8 +8,8 @@ import dotenv from 'dotenv'
 const app = express();
 dotenv.config()
 app.use(express.json());
-const port = 3000 || process.env.PORT;
 
+const port = process.env.PORT || 3000;
 const db = process.env.DB_URL;
 
 
