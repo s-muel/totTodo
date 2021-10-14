@@ -3,11 +3,12 @@ import dotnev from 'dotenv'
 import express from 'express';
 import  Mongoose  from "mongoose";
 import TodoModel from './schemas/todo_schema.js';
+import dotenv from 'dotenv'
+
 const app = express();
-//
-dotnev.config()
+dotenv.config()
 app.use(express.json());
-const port = 3000 || process.env.port;
+const port = 3000 || process.env.PORT;
 
 const db = process.env.DB_URL;
 
