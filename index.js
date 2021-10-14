@@ -1,14 +1,20 @@
 // const express = require("express");
+import dotnev from 'dotenv'
 import express from 'express';
 import  Mongoose  from "mongoose";
 import TodoModel from './schemas/todo_schema.js';
 const app = express();
 //
+dotnev.config()
 app.use(express.json());
 const port = 3000;
 
-Mongoose.connect('mongodb+srv://sammy0288:sammy0288@cluster0.68gyj.mongodb.net/todo_db?retryWrites=true&w=majority',{
-    useNewUrlParser:true,
+const db = process.env.DB_URL;
+
+
+//Mongoose.connect('mongodb+srv://sammy0288:sammy0288@cluster0.68gyj.mongodb.net/todo_db?retryWrites=true&w=majority',{
+Mongoose.connect(db,{
+useNewUrlParser:true,
     useUnifiedTopology:true,
 }).then(()=>{
     console.log('Connected to MonogoDB');
