@@ -1,0 +1,28 @@
+{
+  "name": "todo_webservice",
+  "version": "1.0.0",
+  "description": "todo webservice for todo app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-muel/totTodo.git"
+  },
+  "author": "Elsammy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s-muel/totTodo/issues"
+  },
+  "homepage": "https://github.com/s-muel/totTodo#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
