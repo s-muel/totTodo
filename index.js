@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 const port = process.env.PORT || 3000;
-const db = process.env.DB_URL;
+const db = process.env.CON_STRING;
 
 
 //Mongoose.connect('mongodb+srv://sammy0288:sammy0288@cluster0.68gyj.mongodb.net/todo_db?retryWrites=true&w=majority',{
