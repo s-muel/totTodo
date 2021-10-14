@@ -95,6 +95,8 @@ app.post("/todo", async(req, res) => {
     })
 //updating
 app.patch("/todo/:id", async(req, res) => {
+
+try {
     const {id} = req.params;
     const {status} = req.body;
 
@@ -111,9 +113,13 @@ app.patch("/todo/:id", async(req, res) => {
             message: 'Todos failed to update'
         })
     }
+    
+} catch (error) {
+    console.log(error);
+}
 })
 // to delete 
-app.delete('/todos/:id', async(req,res)=>{
+app.delete('/todo/:id', async(req,res)=>{
     const todoModel = await TodoModel.findByIdAndDelete(req.params.id);
     if(todoModel){
         return res.status(200).json({
