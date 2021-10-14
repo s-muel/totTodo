@@ -7,7 +7,7 @@ const app = express();
 //
 dotnev.config()
 app.use(express.json());
-const port = 3000;
+const port = 3000 || process.env.port;
 
 const db = process.env.DB_URL;
 
@@ -112,4 +112,20 @@ app.patch("/todo/:id", async(req, res) => {
         })
     }
 })
+// to delete 
+app.delete('/todos/:id', async(req,res)=>{
+    const todoModel = await TodoModel.findByIdAndDelete(req.params.id);
+    if(todoModel){
+        return res.status(200).json({
+            status:true,
+            message: 'Todo deleted!',
+            data: todoModel
+        })
+    }else{
+        return res.status(400).json({
+            status:false,
+            message: 'Todos failed to delete'
+        })
+    }
+    })
 app.listen(port, () => console.log(`Example app listening on port ${port}`));
