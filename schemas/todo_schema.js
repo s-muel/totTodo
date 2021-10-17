@@ -21,4 +21,4 @@ const todoSchema = Schema({
 })
 
 const todoModel = model('todo', todoSchema);
-export default todoModel; 
+export default todoModel;

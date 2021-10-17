@@ -8,7 +8,7 @@ dotenv.config()
 const app = express();
 app.use(express.json());
 
-const port = process.env.PORT || 3000;
+const port =  3000 || process.env.PORT;
 const db = process.env.CON_STRING;
 
 
@@ -37,8 +37,9 @@ app.get("/", (req, res) => {
 })
 
 // getting all todo
-app.get("/todo", async(req, res) => {
-    const todoModel = await TodoModel.find({});
+app.get("/todo/:status", async(req, res) => {
+    const {status} = req.params;
+    const todoModel = await TodoModel.find({}).where('status').equals(status);
     if(todoModel){
         return res.status(200).json({
             status:true,
